@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       // propiedad para quitar marca de debug en el celular al desarrollar
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: AppTheme().getTheme(),
+      theme: AppTheme(selectedColor: 5).getTheme(),
       home: const HomeScreen(),
     );
   }
