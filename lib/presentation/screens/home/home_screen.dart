@@ -48,6 +48,12 @@ class _CustomLisTile extends StatelessWidget {
       trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary),
       onTap: () {
         //TODO: navegar a otra pantalla
+        // Navigator.of(context).push(
+        //   MaterialPageRoute(
+        //     builder: (context) => const ButtonsScreen(),
+        //   ),
+        // );
+        Navigator.pushNamed(context, menuItem.link);
       },
     );
   }
