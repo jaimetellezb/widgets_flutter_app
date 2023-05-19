@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:widgets_flutter_app/config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String name = 'home_screen';
+
   const HomeScreen({super.key});
 
   @override
@@ -12,13 +14,13 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Flutter + Material 3'),
         centerTitle: false,
       ),
-      body: const HomeView(),
+      body: const _HomeView(),
     );
   }
 }
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class _HomeView extends StatelessWidget {
+  const _HomeView();
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class _CustomLisTile extends StatelessWidget {
         //   ),
         // );
         // Navigator.pushNamed(context, menuItem.link);
+        // context.pushNamed(CardsScreen.name);
         context.push(menuItem.link);
       },
     );

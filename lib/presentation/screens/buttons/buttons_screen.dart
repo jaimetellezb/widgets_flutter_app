@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ButtonsScreen extends StatefulWidget {
+  static const String name = 'buttons_screen';
+
   const ButtonsScreen({super.key});
 
   @override
