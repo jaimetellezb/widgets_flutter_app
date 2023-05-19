@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: 'Flutter Widgets',
       routerConfig: appRouter,
       // propiedad para quitar marca de debug en el celular al desarrollar
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: AppTheme(selectedColor: 5).getTheme(),
     );
   }
