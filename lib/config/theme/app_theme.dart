@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 const colors = <Color>[
   Colors.blue,
@@ -20,6 +21,7 @@ const colors = <Color>[
   Colors.cyan
 ];
 
+@riverpod
 class AppTheme {
   final int selectedColor;
   final bool isDarkMode;
@@ -35,4 +37,14 @@ class AppTheme {
         colorSchemeSeed: colors[selectedColor],
         appBarTheme: const AppBarTheme(centerTitle: false),
       );
+
+  // el copyWith se encarga de crear una copia de la instancia de una clase
+  // para tener un nuevo estado
+  AppTheme copyWith({
+    int? selectedColor,
+    bool? isDarkMode,
+  }) =>
+      AppTheme(
+          selectedColor: selectedColor ?? this.selectedColor,
+          isDarkMode: isDarkMode ?? this.isDarkMode);
 }
