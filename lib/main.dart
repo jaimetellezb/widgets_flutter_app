@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:widgets_flutter_app/config/router/app_router.dart';
 import 'package:widgets_flutter_app/config/theme/app_theme.dart';
+import 'package:widgets_flutter_app/presentation/providers/theme_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  // configuración para utilizar Riverpod
+  // con esto Riverpod sabe dónde buscar los providers que se creen
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final int selectedColor = ref.watch(selectedColorProvider);
+    final bool isDarkMode = ref.watch(isDarkModeProvider);
+
     return MaterialApp.router(
       title: 'Flutter Widgets',
       routerConfig: appRouter,
       // propiedad para quitar marca de debug en el celular al desarrollar
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(selectedColor: 5).getTheme(),
+      theme: AppTheme(selectedColor: selectedColor, isDarkMode: isDarkMode)
+          .getTheme(),
     );
   }
 }
